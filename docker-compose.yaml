@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+  shortenner-url:
+    build: .
+    networks:
+      - shortnner
+    ports:
+      - "8080:8080"
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - shortnner
+    # volume commented because I don't now if the app will have permission access to write and read in this directory
+    #volumes:
+    #  - ../data/redis:/data
+    restart: always
+
+volumes:
+  pgdata:
+
+networks:
+  shortnner:
+    driver: bridge
