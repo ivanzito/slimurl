@@ -3,6 +3,7 @@ package com.vanhack.slimurl.endpoint;
 import com.vanhack.slimurl.model.Shortner;
 import com.vanhack.slimurl.service.ShortnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
