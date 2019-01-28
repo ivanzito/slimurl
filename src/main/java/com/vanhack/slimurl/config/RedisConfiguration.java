@@ -5,8 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 
-import java.net.URL;
-
 @Configuration
 public class RedisConfiguration {
 
@@ -15,17 +13,10 @@ public class RedisConfiguration {
     @Bean
     JedisConnectionFactory jedisConnectionFactory()  {
         final String redisURL = System.getenv(REDIS_URL);
-        System.out.println(redisURL);
         final JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
-        URL url = null;
-        try {
-            url = new URL(redisURL);
-            jedisConnectionFactory.setHostName(url.getHost());
-            jedisConnectionFactory.setPort(url.getPort());
-            jedisConnectionFactory.setClientName("h");
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        jedisConnectionFactory.setHostName(redisURL.split("@")[1].replaceFirst(":[0-9]{5}",""));
+        jedisConnectionFactory.setPort(Integer.valueOf(redisURL.split(":")[3]));
+        jedisConnectionFactory.setClientName(redisURL.split("//")[1].split(":")[0]);
 
         return jedisConnectionFactory;
     }
