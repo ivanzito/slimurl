@@ -17,7 +17,7 @@ public class RedisConfiguration {
         jedisConnectionFactory.setHostName(redisURL.split("@")[1].replaceFirst(":[0-9]{5}",""));
         jedisConnectionFactory.setPort(Integer.valueOf(redisURL.split(":")[3]));
         jedisConnectionFactory.setClientName(redisURL.split("//")[1].split(":")[0]);
-
+        jedisConnectionFactory.setPassword(redisURL.split("//")[1].split(":")[1].split("@")[0]);
         return jedisConnectionFactory;
     }
 
