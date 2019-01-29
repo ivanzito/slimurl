@@ -34,6 +34,7 @@ public class ShortnerEndpoint {
         final Shortner shortner = Shortner.builder()
                 .localDateTime(LocalDateTime.now())
                 .url(url.toLowerCase())
+                .expiration(1L)
                 .build();
         return server + shortnerService.shortUrl(shortner);
     }
