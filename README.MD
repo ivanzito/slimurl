@@ -1,6 +1,6 @@
 # Slimurl
 
-https://github.com/ivanzito/slimurl/actions/workflows/maven.yml/badge.svg
+https://github.com/ivanzito/slimurl/actions/workflows/maven/badge.svg
 
 # Features
 
