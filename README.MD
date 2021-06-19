@@ -1,7 +1,7 @@
 # Slimurl
 
 https://github.com/ivanzito/slimurl/actions/workflows/maven.yml/badge.svg
-
+[![maven test](https://github.com/ivanzito/slimurl/actions/workflows/maven.yml/badge.svg)](https://github.com/ivanzito/slimurl/actions/workflows/maven.yml/badge.svg)
 # Features
 
   - Short a URL basically.
